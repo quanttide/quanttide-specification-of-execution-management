@@ -13,22 +13,23 @@
 - `reviewer_id`: 必选，复核人——对任务交付结果进行评审验收；执行者（Executor）的 uuid。
 - `due_at`: 可选，截止时间（原始信息无时不虚构，留空由交办人确认）。
 - `status`: 必选，状态（按看板泳道：如 created / in_progress / reviewing / done）。
-- `outcome`: 可选，结果——这项执行的交付结论/产出；复核通过后回填，是下一环节的输入（复核通过构成下一环节的输入）。
-
+- `outcome_ids`: 可选，→ Outcome.id 数组，任务产生的结果。**多对多**（与 Outcome.task_ids 对称）。
 
 ## JSON 示例
 
 ```json
 {
-  "id": "task-3f2a",
-  "list_id": "list-qtdata",
+  "id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "list_id": "5f0c9a1e-3d4b-4e8f-9a2c-1b7d6e5f4a3c",
   "title": "整理客户面板口径确认单",
   "description": "做什么：产出二期指标口径确认文件（变量定义、算例、边界条件）。为什么：第一版策划书曾因口径误解返工。怎样算完成：客户书面确认算例与边界条件。",
   "priority": "high",
-  "owner_id": "user-a",
-  "reviewer_id": "user-b",
+  "owner_id": "b3d3486a-19de-4f0d-8f6e-2a5c4b6d7e8f",
+  "reviewer_id": "c4e4597b-20ef-4a1e-9a7f-3b6d5c7e8f9a",
   "due_at": "2026-09-10",
   "status": "in_progress",
-  "outcome": "客户书面确认算例与边界条件，口径确认单验收通过。"
+  "outcome_ids": [
+    "9b2f8c3d-1a4e-4f5b-8c6d-7e0a9b1c2d3e"
+  ]
 }
 ```

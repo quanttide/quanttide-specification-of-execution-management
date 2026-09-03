@@ -16,7 +16,7 @@
 
 ```json
 {
-  "id": "user-a",
+  "id": "b3d3486a-19de-4f0d-8f6e-2a5c4b6d7e8f",
   "label": "张三"
 }
 ```

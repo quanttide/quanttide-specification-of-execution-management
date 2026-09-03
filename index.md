@@ -1,11 +1,12 @@
 # 量潮执行管理标准
 
-核心领域模型：**List**（清单/次级法人）× **Task**（任务），任务通过 uuid 引用**Executor**（执行者）
+核心领域模型：**List**（清单/次级法人）× **Task**（任务）× **Outcome**（结果），任务通过 uuid 引用**Executor**（执行者）
 
-本领域模型由 quanttide-execute-toolkit 承载（JSON 契约定义）：两个业务实体 + 一个引用实体：
+本领域模型由 quanttide-execute-toolkit 承载（JSON 契约定义）：三个业务实体 + 一个引用实体：
 
 - **List**：一个次级法人——有自己的身份、名字和一份独立于任何人的执行记忆（tasks）
 - **Task**：法人需要记住的一件执行——它是什么、做到哪一步、优先级多高、属于哪个方面
+- **Outcome**：任务产生的结果——独立领域模型，承载交付结论，是下一环节的输入
 - **Executor**：执行者（负责人/复核人的引用目标）——只有 id 与 label，暂靠人工维护，不绑定账户系统
 
 ## 设计原则
@@ -41,7 +42,18 @@ Task {
   reviewer_id: uuid  # 复核人（→ Executor，执行者）
   due_at: datetime   # 截止时间，可选
   status: enum       # 状态
-  outcome: text      # 结果（交付结论；复核通过后回填，下一环节的输入），可选
+  outcome_ids: uuid[] # → Outcome.id，产生的结果（多对多），可选
+}
+```
+
+### Outcome（结果）
+
+```
+Outcome {
+  id: uuid       # 唯一标识
+  task_ids: uuid[] # → Task.id，关联的任务（多对多），可选
+  title: string  # 标题（结果的一句话概括）
+  description: text # 描述（交付了什么/验收依据/对下一环节的意义）
 }
 ```
 
@@ -58,4 +70,5 @@ Executor {
 
 - [list.md](list.md) — List 字段语义与 JSON 示例
 - [task.md](task.md) — Task 字段语义与 JSON 示例
+- [outcome.md](outcome.md) — Outcome 字段语义与 JSON 示例
 - [executor.md](executor.md) — Executor 字段语义与维护规则
