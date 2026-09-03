@@ -42,6 +42,7 @@ Task {
   reviewer_id: uuid  # 复核人（→ Executor，执行者）
   start_at: datetime # 开始时间，可选
   due_at: datetime   # 截止时间，可选
+  completed_at: datetime # 完成时间（status 进入 done 时回填），可选
   status: enum       # 状态
   outcome_ids: uuid[] # → Outcome.id，产生的结果（多对多），可选
   created_at: datetime # 创建时间（系统生成）

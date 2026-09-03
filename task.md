@@ -13,6 +13,7 @@
 - `reviewer_id`: 必选，复核人——对任务交付结果进行评审验收；执行者（Executor）的 uuid。
 - `start_at`: 可选，开始时间（原始信息无时不虚构，留空由交办人确认）。
 - `due_at`: 可选，截止时间（原始信息无时不虚构，留空由交办人确认）。
+- `completed_at`: 可选，完成时间（status 进入 done 时回填）。
 - `status`: 必选，状态（按看板泳道：如 created / in_progress / reviewing / done）。
 - `outcome_ids`: 可选，→ Outcome.id 数组，任务产生的结果。**多对多**（与 Outcome.task_ids 对称）。
 - `created_at`: 必选，创建时间（系统生成）。
@@ -31,6 +32,7 @@
   "reviewer_id": "c4e4597b-20ef-4a1e-9a7f-3b6d5c7e8f9a",
   "start_at": "2026-09-05",
   "due_at": "2026-09-10",
+  "completed_at": null,
   "status": "in_progress",
   "outcome_ids": [
     "9b2f8c3d-1a4e-4f5b-8c6d-7e0a9b1c2d3e"
