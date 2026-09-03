@@ -36,8 +36,8 @@ Task {
   title: string      # 标题（动作 + 对象）
   description: text  # 描述（做什么/为什么/怎样算完成）
   priority: enum     # 优先级
-  owner_id: string   # 负责人
-  reviewer_id: string # 复核人
+  owner_id: uuid     # 负责人（→ Executor，执行者）
+  reviewer_id: uuid  # 复核人（→ Executor，执行者）
   due_at: datetime   # 截止时间，可选
   status: enum       # 状态
 }
