@@ -11,9 +11,12 @@
 - `priority`: 必选，优先级（约定档位；原始信息无信号时默认最低档，由负责人确认）。
 - `owner_id`: 必选，负责人——对任务的执行与交付负责；执行者（Executor）的 uuid。
 - `reviewer_id`: 必选，复核人——对任务交付结果进行评审验收；执行者（Executor）的 uuid。
+- `start_at`: 可选，开始时间（原始信息无时不虚构，留空由交办人确认）。
 - `due_at`: 可选，截止时间（原始信息无时不虚构，留空由交办人确认）。
 - `status`: 必选，状态（按看板泳道：如 created / in_progress / reviewing / done）。
 - `outcome_ids`: 可选，→ Outcome.id 数组，任务产生的结果。**多对多**（与 Outcome.task_ids 对称）。
+- `created_at`: 必选，创建时间（系统生成）。
+- `updated_at`: 必选，更新时间（系统生成，每次变更刷新）。
 
 ## JSON 示例
 
@@ -26,10 +29,13 @@
   "priority": "high",
   "owner_id": "b3d3486a-19de-4f0d-8f6e-2a5c4b6d7e8f",
   "reviewer_id": "c4e4597b-20ef-4a1e-9a7f-3b6d5c7e8f9a",
+  "start_at": "2026-09-05",
   "due_at": "2026-09-10",
   "status": "in_progress",
   "outcome_ids": [
     "9b2f8c3d-1a4e-4f5b-8c6d-7e0a9b1c2d3e"
-  ]
+  ],
+  "created_at": "2026-09-03T09:30:00+08:00",
+  "updated_at": "2026-09-03T15:20:00+08:00"
 }
 ```

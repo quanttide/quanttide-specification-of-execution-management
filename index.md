@@ -40,9 +40,12 @@ Task {
   priority: enum     # 优先级
   owner_id: uuid     # 负责人（→ Executor，执行者）
   reviewer_id: uuid  # 复核人（→ Executor，执行者）
+  start_at: datetime # 开始时间，可选
   due_at: datetime   # 截止时间，可选
   status: enum       # 状态
   outcome_ids: uuid[] # → Outcome.id，产生的结果（多对多），可选
+  created_at: datetime # 创建时间（系统生成）
+  updated_at: datetime # 更新时间（系统生成，每次变更刷新）
 }
 ```
 
