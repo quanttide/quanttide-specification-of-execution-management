@@ -7,6 +7,7 @@
 - `id`: 必选，唯一标识（uuid）。
 - `name`: 必选，清单名。
 - `tasks`: 本法人的执行记忆（Task 数组）。
+- `outcomes`: 可选，本清单产生的结果（Outcome.id 数组），清单层面的交付汇总。
 
 ## JSON 示例
 
@@ -17,6 +18,9 @@
   "tasks": [
     "7c9e6679-7425-40de-944b-e07fc1f90ae7",
     "2a4b6c8d-1e3f-4a5b-9c0d-8e7f6a5b4c3d"
+  ],
+  "outcomes": [
+    "9b2f8c3d-1a4e-4f5b-8c6d-7e0a9b1c2d3e"
   ]
 }
 ```
