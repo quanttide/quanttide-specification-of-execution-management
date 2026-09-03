@@ -1,4 +1,4 @@
-# Executor（执行者）
+# 执行者`Executor`
 
 任务的参与主体——负责人（owner_id）与复核人（reviewer_id）都是执行者。
 

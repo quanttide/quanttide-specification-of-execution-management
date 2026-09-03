@@ -1,4 +1,4 @@
-# Task（任务）
+# 任务`Task`
 
 法人需要记住的一件执行——它是什么、做到哪一步、优先级多高、属于哪个方面。
 
@@ -15,9 +15,9 @@
 - `due_at`: 可选，截止时间（原始信息无时不虚构，留空由交办人确认）。
 - `completed_at`: 可选，完成时间（status 进入 done 时回填）。
 - `status`: 必选，状态（按看板泳道：如 created / in_progress / reviewing / done）。
-- `outcome_ids`: 可选，→ Outcome.id 数组，任务产生的结果。**多对多**（与 Outcome.task_ids 对称）。
 - `created_at`: 必选，创建时间（系统生成）。
 - `updated_at`: 必选，更新时间（系统生成，每次变更刷新）。
+- `outcome_ids`: 可选，→ Outcome.id 数组，任务产生的结果。**多对多**（与 Outcome.task_ids 对称）。
 
 ## JSON 示例
 
