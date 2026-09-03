@@ -15,6 +15,7 @@
 - `due_at`: 可选，截止时间（原始信息无时不虚构，留空由交办人确认）。
 - `completed_at`: 可选，完成时间（status 进入 done 时回填）。
 - `status`: 必选，状态（按看板泳道：如 created / in_progress / reviewing / done）。
+- `is_active`: 必选，是否活跃——False 表示任务已**归档**：不进看板、不再流转，但仍可被 Outcome 引用备查（默认 True）。
 - `created_at`: 必选，创建时间（系统生成）。
 - `updated_at`: 必选，更新时间（系统生成，每次变更刷新）。
 - `outcome_ids`: 可选，→ Outcome.id 数组，任务产生的结果。**多对多**（与 Outcome.task_ids 对称）。
@@ -34,6 +35,7 @@
   "due_at": "2026-09-10",
   "completed_at": null,
   "status": "in_progress",
+  "is_active": true,
   "outcome_ids": [
     "9b2f8c3d-1a4e-4f5b-8c6d-7e0a9b1c2d3e"
   ],

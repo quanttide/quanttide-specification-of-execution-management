@@ -44,6 +44,7 @@ Task {
   due_at: datetime   # 截止时间，可选
   completed_at: datetime # 完成时间（status 进入 done 时回填），可选
   status: enum       # 状态
+  is_active: bool    # 是否活跃（False=已归档；归档任务仍可被 Outcome 引用备查）
   outcome_ids: uuid[] # → Outcome.id，产生的结果（多对多），可选
   created_at: datetime # 创建时间（系统生成）
   updated_at: datetime # 更新时间（系统生成，每次变更刷新）
